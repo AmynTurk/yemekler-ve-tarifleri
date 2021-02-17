@@ -1,0 +1,32 @@
+<h3>Malzeme Ekle:</h3>
+<br>
+                <tr id="addMenu">
+                    <td>
+                      <input type="text" #ingredientInput placeholder="lütfen malzeme için isim giriniz" style="width: 180%;">
+                    </td>
+                  </tr>
+                  <br>
+                  <br>
+                  <tr>
+                    <td>
+                      <label for="">Lütfen malzeme türünü seçiniz:</label>
+                      <div class="form-group" style="width: auto;">
+                        <select class="form-control" id="mealSelect" #ingredientGenreSelect>
+                          <option value="0">henüz seçilmedi!</option>
+                          <option *ngFor="let value of Ingredient_genreList" value={{value.Id}}>{{value.name}}</option>
+                        </select>
+                      </div> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <a _ngcontent-c5="" class="btn btn-sm bg-warning text-right" 
+                        (click)="add(ingredientInput.value,ingredientGenreSelect.value)"
+                        >Submit</a>
+                      &nbsp;&nbsp;
+                      <a _ngcontent-c5="" mat-dialog-close class="btn btn-sm bg-info text-right">Cancel</a>
+                    </td>
+                  </tr>

@@ -1,0 +1,75 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col" id="listTable">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Yemek Türleri</h3>
+          </div>
+          <div class="form-group" style="width: 25%;">
+            <label for="exampleFormControlSelect1">Yemek Türü Listesi Filtreleyici</label>
+            <select class="form-control" id="exampleFormControlSelect1" #mealGenreFilterSelect (change)="cleartheDisplayList(mealGenreFilterSelect.value)">
+              <option value="0">henüz seçilmedi!</option>
+              <option *ngFor="let value of mealGenreRealList" value="{{value.Id}}">{{value.name}}</option>
+            </select>
+          </div> 
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Yemek Türü Adı</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <a class="btn btn-sm bg-success text-right" (click)="openthePopUp()">Yemek türü ekle</a>
+                  </td>
+                </tr>
+                <tr *ngFor="let value of mealGenreDisplayList">
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i> {{value.name}}
+                    </span>
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                    <button _ngcontent-c5="" class="btn btn-sm bg-yellow" (click)="updateChoose(value)" value="{{value}}">Update</button>
+                    &nbsp;&nbsp;
+                    <button _ngcontent-c5="" class="btn btn-sm bg-gradient-danger" (click)="deletewithPrompt(value.Id)">Delete</button>
+                  </td>
+                </tr>
+                <!-- <tr id="addButton">
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <a class="btn btn-sm bg-success text-right"  onclick="document.getElementById('addMenu').style.display='table-row'; document.getElementById('addButton').style.display='none';">Add</a>
+                  </td>
+                </tr>
+                <tr id="addMenu" style="display: none;">
+                  <td>
+                    <input type="text" #mealGenreInput placeholder="please write the name for the meal genre" style="width: 80%;">
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                    <a _ngcontent-c5="" class="btn btn-sm bg-warning text-right" onclick="document.getElementById('addMenu').style.display='none'; document.getElementById('addButton').style.display='table-row';"
+                      (click)="add(mealGenreInput.value)"
+                      >Submit</a>
+                    &nbsp;&nbsp;
+                    <a _ngcontent-c5="" class="btn btn-sm bg-info text-right" onclick="document.getElementById('addMenu').style.display='none'; document.getElementById('addButton').style.display='table-row';">Cancel</a>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

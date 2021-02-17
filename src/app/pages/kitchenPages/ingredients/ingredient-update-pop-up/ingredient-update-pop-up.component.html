@@ -1,0 +1,35 @@
+
+      <div class="col" id="updateTable">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Güncellemek için Seçmiş Olduğunuz Malzeme</h3>
+          </div>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <tr id="addMenu">
+                <td>
+                  <input type="text" #ingredientInputforUpdate placeholder="{{inputJustifierService.storageData}}" style="width: 80%;">
+                </td>
+                <td>
+                  <div class="form-group" style="width: auto;">
+                    <label>please choose the ingredient:</label>
+                    <select class="form-control" id="ingredientGenreSelectforUpdate" #ingredientGenreSelectforUpdate>
+                      <option value="{{IngredientFullInfoforRegistration.Ingredient_genreId}}">{{IngredientFullInfoforRegistration.ingredient_genre_name}}</option>
+                      <option *ngFor="let value of Ingredient_genreList" value="{{value.Id}}">{{value.name}}</option>
+                    </select>
+                  </div> 
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>
+                  <a _ngcontent-c5="" class="btn btn-sm bg-warning text-right" (click)="updateSet(ingredientInputforUpdate.value,ingredientGenreSelectforUpdate.value)">Submit</a>
+                  &nbsp;&nbsp;
+                  <a _ngcontent-c5="" mat-dialog-close class="btn btn-sm bg-info text-right">Cancel</a>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>

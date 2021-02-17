@@ -1,0 +1,19 @@
+
+  
+  <tr id="addMenu" style="display: table-row;">
+    <td>
+      <input type="text" #mealInput placeholder="please write the name for the meal" style="width: 80%;">
+    </td>
+    <td>
+    </td>
+    <td>
+      <a _ngcontent-c5="" class="btn btn-sm bg-warning text-right" onclick="document.getElementById('addMenu').style.display='none'; document.getElementById('addButton').style.display='table-row';"
+        (click)="add(mealInput.value)"
+        >Submit</a>
+      &nbsp;&nbsp;
+      <button _ngcontent-c5="" mat-button mat-dialog-close _ngcontent-c5="" class="btn btn-sm bg-info text-right" 
+        onclick="document.getElementById('addMenu').style.display='none'; 
+                 document.getElementById('addButton').style.display='table-row';"
+        >Cancel</button>
+    </td>
+  </tr>

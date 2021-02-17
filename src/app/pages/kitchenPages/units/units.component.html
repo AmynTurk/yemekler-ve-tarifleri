@@ -1,0 +1,54 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col" id="listTable">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Miktar Birimleri</h3>
+          </div>
+          <div class="form-group" style="width: 25%;">
+            <label for="exampleFormControlSelect1">Miktar Birim Listesi Filtreleyici</label>
+            <select class="form-control" id="exampleFormControlSelect1" #unitFilterSelect (change)="cleartheDisplayList(unitFilterSelect.value)">
+              <option value="0">has not choosen yet</option>
+              <option *ngFor="let value of unitRealList" value="{{value.Id}}">{{value.name}}</option>
+            </select>
+          </div> 
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Miktar Birimi Adı</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="addButton">
+                  <td>
+                    <a class="btn btn-sm bg-success text-right" (click)="opentheAddPopUp()">Miktar Birimi Ekle</a>
+                  </td>
+                </tr>
+                <tr *ngFor="let value of unitDisplayList">
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i> {{value.name}}
+                    </span>
+                  </td>
+                  <td>
+                  </td>
+                  <td>
+                    <button _ngcontent-c5="" class="btn btn-sm bg-yellow" (click)="updateChoose(value)" value="{{value}}">Update</button>
+                    &nbsp;&nbsp;
+                    <button _ngcontent-c5="" class="btn btn-sm bg-gradient-danger" (click)="deletewithPrompt(value.Id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,25 @@
+<h3>Yemek Ekle</h3>
+<br>
+<tr id="addMenu" style="display: table-row;">
+    <td>
+      <input type="text" #mealNameInput placeholder="please write the name for the meal" style="width: 180%;">
+      <br>
+      <br>
+      <input type="text" #mealVariationInput placeholder="please write the variation name for the meal" style="width: 180%;">
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>
+      <br>
+      <a _ngcontent-c5="" class="btn btn-sm bg-warning text-right"
+        (click)="add(mealNameInput.value,mealVariationInput.value)"
+        >Submit</a>
+      &nbsp;&nbsp;
+      <button _ngcontent-c5="" mat-button mat-dialog-close _ngcontent-c5="" class="btn btn-sm bg-info text-right" 
+        onclick="document.getElementById('addMenu').style.display='none'; 
+                 document.getElementById('addButton').style.display='table-row';"
+        >Cancel</button>
+    </td>
+  </tr>

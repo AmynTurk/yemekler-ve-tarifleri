@@ -1,0 +1,74 @@
+<h3>{{inputJustifierService.storageDataList[3]}} {{inputJustifierService.storageDataList[1]}} için mevcut malzemeler</h3>
+
+  <tbody>
+    <button id="addButton" _ngcontent-c5="" class="btn btn-sm bg-success text-right"
+      onclick="document.getElementById('addButton').style.display='none'
+               document.getElementById('addMenu').style.display='table-row'">malzeme ekle</button>
+    <tr *ngFor="let value of mealsandIngredientFullObjDisplayList">
+      <td id="{{value.Id}}">
+        <span class="badge badge-dot mr-4">
+          <i class="bg-warning"></i> {{value.amount}} kilo veya litre {{value.ingredient_name}} 
+          &nbsp;&nbsp;&nbsp;
+          <button _ngcontent-c5="" class="btn btn-sm bg-warning text-right"
+            (click)="delete(value)">kaldır</button>
+        </span>
+      </td>
+    </tr>
+
+    <tr id="addMenu" style="display: none;">
+      <!-- dropdown menü lazım -->
+        <th>
+          <div class="form-group" style="width: 25%;">
+            <label for="exampleFormControlSelect1">Malzemeyi Seçiniz</label>
+            <select #ingredientforAdd class="form-control" (change)="settheAddObj(ingredientforAdd.value,amountforAdd.value)">
+              <option value="0">henüz seçilmedi</option>
+              <option *ngFor="let item of IngredientFULLObjRealList" value="{{item.Id}}"
+                >{{item.name}} ({{item.ingredient_genre_name}})</option>
+            </select>
+          </div> 
+        </th>
+        
+        <th>
+          <label for="">Miktarı Belirleyiniz:</label>
+          <br>
+          <input #amountforAdd type="text" 
+              (change)="settheAddObj(ingredientforAdd.value,amountforAdd.value)">
+        </th>
+        
+        <th>
+          &nbsp;&nbsp;
+          <button _ngcontent-c5="" class="btn btn-sm bg-success text-right"
+            onclick="document.getElementById('addMenu').style.display='none';
+                   document.getElementById('addButton').style.display='table-row';"
+            (click)="add()">onayla</button>
+          &nbsp;&nbsp;
+          <button _ngcontent-c5="" class="btn btn-sm bg-yellow text-right"
+            onclick="document.getElementById('addMenu').style.display='none';
+                   document.getElementById('addButton').style.display='table-row';">iptal</button>
+        </th>
+        
+      <!-- <th>
+        <div class="form-group" style="width: 25%;">
+          <label for="exampleFormControlSelect1">Malzemenin Çeşidini Seçiniz</label>
+          <select class="form-control" #ingredientGenre (change)="ingredientGenreChoosed(ingredientGenre.value)">
+            <option value="0">henüz seçilmedi</option>
+            <option *ngFor="let value of objectsandObjectListsService.IngredientGenreObjRealList"
+              value="{{value.Id}}">{{value.name}}</option>
+          </select>
+        </div> 
+      </th> -->
+
+                 <!-- ingredient_name (askıda) - ingredient genre - amount -->
+    </tr>
+  </tbody>
+  <br>
+  <br>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>
+      <a _ngcontent-c5="" class="btn btn-sm bg-yellow text-right" (click)="submit()">Submit</a>
+      &nbsp;&nbsp;
+      <button _ngcontent-c5="" mat-button mat-dialog-close class="btn btn-sm bg-info text-right">Cancel</button>
+    </td>
+  </tr>

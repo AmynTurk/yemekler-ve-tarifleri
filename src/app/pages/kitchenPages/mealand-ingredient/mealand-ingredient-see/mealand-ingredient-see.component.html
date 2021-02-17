@@ -1,0 +1,21 @@
+
+<h3>{{inputJustifierService.storageDataList[3]}} {{inputJustifierService.storageDataList[1]}} için malzemeler</h3>
+
+  <tbody>
+    <tr id="addMenu" style="display: table-row;"  *ngFor="let value of mealsandIngredientFullObjDisplayList">
+      <td>
+        <span class="badge badge-dot mr-4">
+          <i class="bg-warning"></i> {{value.amount}} kilo veya litre {{value.ingredient_name}} 
+        </span>
+      </td>
+    </tr>
+  </tbody>
+  <br>
+  <br>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>
+      <button _ngcontent-c5="" mat-button mat-dialog-close _ngcontent-c5="" class="btn btn-sm bg-info text-right">exit</button>
+    </td>
+  </tr>

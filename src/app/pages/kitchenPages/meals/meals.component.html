@@ -1,0 +1,78 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8"></div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col" id="listTable">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Yemekler</h3>
+          </div>
+          <table>
+            <thead>
+              <th>
+                <div class="form-group" style="width: 25%;">
+                  <label for="exampleFormControlSelect1">Yemek Filtreleyici</label>
+                  <select class="form-control" id="exampleFormControlSelect1" #mealFilterSelect (change)="cleartheDisplayList(mealFilterSelect.value,mealVariationFilterSelect.value)">
+                    <option value="0">has not choosen yet</option>
+                    <option *ngFor="let value of mealNameList" value="{{value}}">{{value}}</option>
+                  </select>
+                </div> 
+              </th>
+              <th>
+                <div class="form-group" style="width: 25%;">
+                  <label for="exampleFormControlSelect1">Yemek Çeşidi Filtreleyici</label>
+                  <select class="form-control" id="exampleFormControlSelect1" #mealVariationFilterSelect (change)="cleartheDisplayList(mealFilterSelect.value,mealVariationFilterSelect.value)">
+                    <option value="0">has not choosen yet</option>
+                    <option *ngFor="let value of mealVariationRealList" value="{{value.Id}}">{{value.name}}</option>
+                  </select>
+                </div> 
+              </th>
+            </thead>
+          </table>
+          <div class="table-responsive">
+            <table class="table align-items-center table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Yemek Adı</th>
+                  <th scope="col">Yemek Varyasyonu</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="addButton">
+                  <td>
+                    <a class="btn btn-sm bg-success text-right" (click)="opentheAddPopUp()">Yemek ekle</a>
+                  </td>
+                </tr>
+                <tr *ngFor="let value of mealFullDisplayList">
+                  <td>
+                    <span class="badge badge-dot mr-4">
+                      <i class="bg-warning"></i> {{value.name}} 
+                    </span>
+                  </td>
+                  <td>
+                    {{value.meal_variation_name}}
+                  </td>
+                  <td>
+                    <button _ngcontent-c5="" class="btn btn-sm bg-yellow" (click)="updateChoose(value)"
+                      value="{{value}}">Update</button>
+                    &nbsp;&nbsp;
+                    <button _ngcontent-c5="" class="btn btn-sm bg-gradient-danger" (click)="deletewithPrompt(value.Id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+  
